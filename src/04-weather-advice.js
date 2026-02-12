@@ -22,4 +22,58 @@
  */
 export function getWeatherAdvice(temperature, isRaining) {
   // Your code here
+
+  const temp = temperature
+
+  if ( temp >= 35 ) {
+    return "Too hot for hiking - stay indoors and hydrate"
+  }
+  //way 1
+  else if (temp >= 25 && !isRaining) {
+    return "Great weather for hiking - don't forget sunscreen"
+  } else if (temp >= 25 && isRaining) {
+    return "Warm but rainy - consider indoor activities"
+  } 
+  //way 2
+  else if (temp >= 15) {
+    if (isRaining) {
+      return "Cool and rainy - bring waterproof gear if hiking"
+    }
+    return "Perfect hiking weather - enjoy the trails"
+  } 
+  //way 3 
+  else if (temp >= 5) {
+    return isRaining 
+    ? "Cold and wet - best to stay indoors"
+    : "Chilly - wear layers for your hike"
+  }
+  
+  else {
+    return "Too cold - stay warm indoors"
+  }
+
 }
+
+// npm test -- ticket-pricing
+
+// npm test -- traffic-light
+
+// npm test -- grade-calculator
+
+// npm test -- weather-advice
+
+// npm test -- library-card
+
+// npm test -- shipping-calculator
+
+// npm test -- coffee-shop
+
+// npm test -- tax-calculator
+
+// npm test -- password-strength
+
+// npm test -- tip-calculator
+
+// npm test -- parking-fee
+
+// npm test -- season-activity

@@ -28,6 +28,39 @@
  * @param {number} orderTotal - Total order amount in dollars
  * @returns {number} Shipping cost, 0 for free shipping, or -1 for invalid input
  */
+
 export function calculateShipping(weight, country, orderTotal) {
-  // Your code here
+
+  if ( weight <= 0 || orderTotal < 0){
+    return -1
+  }
+
+    let finalCost;
+
+  function calculatePrices(upto1kgP, upto5kgP, over5kgP) {
+    if (weight <= 1) {
+      finalCost = upto1kgP;
+    } else if (weight <= 5) {
+      finalCost = upto5kgP;
+    } else {
+      finalCost = over5kgP;
+    }
+  }
+
+  if (country.trim().toUpperCase() === "US") {
+
+    if (orderTotal > 50) {
+      return 0
+    }
+
+    calculatePrices(5, 10, 15)
+    return finalCost;
+  }
+
+  if (orderTotal > 100) {
+      return 0
+    }
+  calculatePrices(15, 25, 40)
+  return finalCost;
+
 }

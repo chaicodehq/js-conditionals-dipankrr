@@ -25,6 +25,55 @@
  * @param {string} password - The password to evaluate
  * @returns {string} "weak", "medium", "strong", or "very strong"
  */
-export function checkPasswordStrength(password) {
-  // Your code here
-}
+
+  export function checkPasswordStrength(password) {
+
+    if (typeof password !== 'string' || password.length == 0) {
+      return 'weak'
+    }
+
+    let score =  0;
+
+    if ( password.length >= 8 ) { score++ }
+    if ( /[A-Z]/.test(password) ) { score++ }
+    if ( /[a-z]/.test(password) ) { score++ }
+    if ( /[0-9]/.test(password) ) { score++ }
+    if ( /[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password) ) { score++ }
+
+    if (score === 5) return 'very strong'
+    if (score === 4) return 'strong'
+    if (score >= 2) return 'medium'
+    return 'weak'
+
+  }
+
+
+// export function checkPasswordStrength(password) {
+
+//   if (typeof password !== 'string' || password.length == 0 ) {
+//     return 'weak'
+//   }
+
+//   const c1 = password.length >= 8
+//   const c2 = /[A-Z]/.test(password)
+//   const c3 = /[a-z]/.test(password)
+//   const c4 = /[0-9]/.test(password)
+//   const c5 = /[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password)
+
+//   const cs = [c1, c2, c3, c4, c5]
+
+//   const trueCount = cs.filter(Boolean).length
+
+
+//   if (trueCount >= 5) {
+//     return 'very strong'
+//   } else if (trueCount == 4) {
+//     return 'strong'
+//   } else if (trueCount >= 2) {
+//     return 'medium'
+//   } else {
+//     return 'weak'
+//   }
+
+
+// }
